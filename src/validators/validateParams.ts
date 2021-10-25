@@ -1,0 +1,77 @@
+export default {
+  type: 'object',
+  required: [ 'q', 'appid' ],
+  properties: {
+    q: {
+      type: 'string',
+      minLength: 2,
+      maxLength: 30
+    },
+    appid: {
+      type: 'string',
+      minLength: 32,
+      maxLength: 32
+    },
+    mode: {
+      type: 'string',
+      enum: [ 'xml', 'html', 'json' ],
+      default: 'json'
+    },
+    units: {
+      type: 'string',
+      enum: [ 'standard', 'metric', 'imperial' ],
+      default: 'standard'
+    },
+    lang: {
+      type: 'string',
+      enum: [
+        'af',
+        'al',
+        'ar',
+        'az',
+        'bg',
+        'ca',
+        'cz',
+        'da',
+        'de',
+        'el',
+        'en',
+        'eu',
+        'fa',
+        'fi',
+        'fr',
+        'gl',
+        'he',
+        'hi',
+        'hr',
+        'hu',
+        'id',
+        'it',
+        'ja',
+        'kr',
+        'la',
+        'lt',
+        'mk',
+        'no',
+        'nl',
+        'pl',
+        'pt',
+        'pt_br',
+        'ro',
+        'ru',
+        'sv,',
+        'sk',
+        'sl',
+        'sp,',
+        'sr',
+        'th',
+        'tr',
+        'ua,',
+        'vi',
+        'zh_cn',
+        'zh_tw',
+        'zu'
+      ],
+    },
+  },
+};
