@@ -15,14 +15,13 @@ export default () => {
   /**
    *  Register API routes
    */
-
   app.use('/api', routes.api);
 
   /**
    *  Register catch-all route
    */
-  app.use('*', (_req: Request, _res: Response, _next: NextFunction) => {
-    throw new NotFoundError('Page not found');
+  app.use('*', (_req: Request, _res: Response, next: NextFunction) => {
+    next(new NotFoundError('Page not found'));
   });
 
   /**

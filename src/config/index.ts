@@ -11,7 +11,7 @@ interface configurationObject {
 const config: configurationObject = {
   PORT: Number(process.env.PORT) || 3000,
   HOST: process.env.HOST || '127.0.0.1',
-  API_URL: process.env.API_URL || 'https://api.openweathermap.org/data/2.5/weather?',
+  API_URL: process.env.API_URL || 'https://api.openweathermap.org/data/2.5/weather',
   API_KEY: process.env.API_KEY || '',
 };
 

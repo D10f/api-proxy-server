@@ -10,8 +10,12 @@ export default (req: Request, _res: Response, next: NextFunction) => {
   const isValid = validateParams(req.query);
 
   if (!isValid) {
-    return next(new BadRequestError('Invalid query parameter provided'));
+    return next(
+      new BadRequestError('Invalid query parameters provided')
+    );
   }
+
+  console.log(req.query);
 
   next();
 };

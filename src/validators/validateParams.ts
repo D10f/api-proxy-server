@@ -1,17 +1,17 @@
 export default {
   type: 'object',
-  required: [ 'q', 'appid' ],
+  required: [ 'q' ],
   properties: {
     q: {
       type: 'string',
       minLength: 2,
       maxLength: 30
     },
-    appid: {
-      type: 'string',
-      minLength: 32,
-      maxLength: 32
-    },
+    // appid: {
+    //   type: 'string',
+    //   minLength: 32,
+    //   maxLength: 32
+    // },
     mode: {
       type: 'string',
       enum: [ 'xml', 'html', 'json' ],
