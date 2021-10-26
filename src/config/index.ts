@@ -22,7 +22,7 @@ for (option in config) {
     config[option] === null ||
     config[option] === ''
   ) {
-    console.log(`${option} is not a valid. Exiting...`);
+    console.error(`Required environment variable ${option} is missing!`);
     process.exit(1);
   }
 }

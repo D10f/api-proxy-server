@@ -3,19 +3,15 @@ import { BadRequestError } from '../../services/ErrorService';
 import { validateParams } from '../../validators';
 
 /**
- *  Validates the params receives to conform with the Open Weather API service.
- *  Non-standard parameters are removed from the request query object.
+ *  Validates the request params to conform with the Open Weather API.
+ *  Additional parameters are removed from the request query object.
  */
 export default (req: Request, _res: Response, next: NextFunction) => {
-  const isValid = validateParams(req.query);
+  const errors = validateParams(req.query);
 
-  if (!isValid) {
-    return next(
-      new BadRequestError('Invalid query parameters provided')
-    );
+  if (errors) {
+    return next(new BadRequestError(errors.map(err => err.message!)));
   }
-
-  console.log(req.query);
 
   next();
 };

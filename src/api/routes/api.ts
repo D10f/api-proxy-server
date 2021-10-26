@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import * as APIController from '../controllers/api';
-import asyncRequestHandler from '../../helpers/asyncRouteHandler';
+import utils from '../../utils';
 import validateParams from '../middleware/validateParams';
 
 const router = Router();
 
-router.get('/', validateParams, asyncRequestHandler(APIController.getApiKey));
+router.get('/', validateParams, utils.asyncHandler(APIController.getApiKey));
 
 export default router;

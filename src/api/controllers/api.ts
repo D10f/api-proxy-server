@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import needle from 'needle';
+import OpenWeatherService, { OpenWeatherRequestObject } from '../../services/OpenWeatherService'
 import config from '../../config';
 
 export const getApiKey: RequestHandler = async (req, res) => {
@@ -10,10 +10,7 @@ export const getApiKey: RequestHandler = async (req, res) => {
     url.search += `${option}=${req.query[option]}&`;
   }
 
-  url.search += `appid=${config.API_KEY}`;
+  const response = await OpenWeatherService.getWeatherData(new OpenWeatherRequestObject(url));
 
-  // Through OpenWeatherService
-  const response = await needle('get', url.href);
-  const data = response.body;
-  res.status(200).json(data);
+  res.status(200).json(response);
 };
