@@ -1,4 +1,6 @@
-export default {
+import ajv from '../loaders/validator';
+
+const paramsSchema = {
   type: 'object',
   required: [ 'q' ],
   properties: {
@@ -78,3 +80,9 @@ export default {
     },
   },
 };
+
+export default (input: object) => {
+  const validate = ajv.compile(paramsSchema);
+  validate(input);
+  return validate.errors;
+}

@@ -1,4 +1,6 @@
-export default {
+import ajv from '../loaders/validator';
+
+const openWeatherResponseSchema = {
   type: 'object',
   properties: {
     coord: {
@@ -11,6 +13,7 @@ export default {
     weather: {
       type: 'array',
       minItems: 1,
+      additionalItems: false,
       items: [
         {
           type: 'object',
@@ -55,4 +58,9 @@ export default {
       type: 'number'
     }
   }
+};
+
+export default (input: object) => {
+  const validate = ajv.compile(openWeatherResponseSchema);
+  validate(input);
 };
