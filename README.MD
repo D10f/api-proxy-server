@@ -9,6 +9,8 @@ A proxy server to hold your API keys and secrets. It builds on top of [Brad Trav
 - [x] Error Handling
 - [x] Health-check endpoint
 - [x] Graceful shutdown
+- [ ] Unit Tests
+- [ ] Integration Tests
 - [ ] Rate limiting (externally - Nginx)
 - [ ] Cache response (externally - Redis)
 - [ ] Dockerized Deployment

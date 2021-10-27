@@ -56,6 +56,9 @@ const openWeatherResponseSchema = {
     },
     cod: {
       type: 'number'
+    },
+    message: {
+      type: 'string'
     }
   }
 };

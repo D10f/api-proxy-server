@@ -30,5 +30,6 @@ export interface OpenWeatherMapAPIResponse {
     sunrise: number;
     sunset: number;
   };
-  cod: string;
+  cod: number;
+  message?: string;
 }
